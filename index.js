@@ -98,7 +98,7 @@ const floyoAPIDemo = async () => {
     console.log(`   RUN FLO TIME USED: ${flotime_ms}ms`)
     console.log(`   RUN OUTPUTS:`)
     outputs.forEach(output => {
-        console.log(`     💾  ${output.file_name} (${output.mime_type} / ${output.file_size} bytes) - id: ${output.id}`)
+        console.log(`     💾  ${output.file_name} (${output.mime_type} / ${output.size_bytes} bytes) - id: ${output.id}`)
         console.log(`         Presigned URL: ${output.presigned_url}`)
     });
 }
