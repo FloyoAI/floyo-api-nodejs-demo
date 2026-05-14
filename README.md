@@ -1,11 +1,28 @@
-# FLOYO API
-## NodeJS Mini Demo App
+# Floyo API Node.js Demo
 
-### HOW TO RUN
-1. Clone the repo `git clone git@github.com:FloyoAI/floyo-api-nodejs-demo.git`
-2. Run `npm install` to install dependencies
-3. Copy `.env.example` to `.env` and fill in the `API_KEY` value with your Floyo API Key.
-4. Run the demo with `node index.js`
+This repository contains practical Node.js examples for common Floyo API workflows.
 
-#### NOTE:
-The demo runs the Comfy default workflow. You must use a `Comfy API JSON` workflow, like the one in `/data/base_workflow.json`. 
+## Getting Started
+
+1. Clone the repository:
+   `git clone git@github.com:FloyoAI/floyo-api-nodejs-demo.git`
+2. Install dependencies:
+   `npm install`
+3. Create your local environment file:
+   `cp .env.example .env`
+4. Open `.env` and set `API_KEY` with your Floyo API key.
+5. Run any example from the `examples/` directory.
+
+## Code Examples
+
+1. [Run a basic workflow](/examples/run-workflow): `node examples/run-workflow` - Run the default ComfyUI workflow.
+2. [Download a file](/examples/download-file/): `node examples/download-file` - Download a file from the CDN to local storage.
+3. [Upload a file](/examples/upload-file/): `node examples/upload-file` - Upload a file to your team's `inputs` folder.
+4. [Upload and run with input](/examples/upload-and-run-with-input/): `node examples/upload-and-run-with-input` - Upload an input file and use it in an image-to-image workflow run.
+
+## Resources
+
+- [Floyo API introduction](https://docs.floyo.ai/floyo-api-introduction)
+- [Create and use API keys](https://docs.floyo.ai/getting-started#step-1-create-an-api-key)
+- [Run workflows](https://docs.floyo.ai/workflow-runs)
+- [Manage files](https://docs.floyo.ai/files)

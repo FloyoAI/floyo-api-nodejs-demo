@@ -1,0 +1,158 @@
+{
+  "3": {
+    "inputs": {
+      "seed": 444604702507956,
+      "steps": 8,
+      "cfg": 0.2,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": ["15", 0],
+      "model": ["20", 0],
+      "positive": ["6", 0],
+      "negative": ["6", 0],
+      "latent_image": ["10", 0]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "5": {
+    "inputs": {
+      "width": 1344,
+      "height": 768,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image"
+    }
+  },
+  "6": {
+    "inputs": {
+      "text": "A photorealistic picture of a man wearing a white tank top,  long hair blowing in the wind, on a fluorescent green motorcycle, jumping over some dunes, multiple colorful hot air balloons in the sky",
+      "clip": ["33", 0]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Positive Prompt"
+    }
+  },
+  "8": {
+    "inputs": {
+      "samples": ["3", 0],
+      "vae": ["24", 0]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "9": {
+    "inputs": {
+      "filename_prefix": "Floyo",
+      "images": ["8", 0]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "10": {
+    "inputs": {
+      "any_01": ["11", 0],
+      "any_02": ["5", 0]
+    },
+    "class_type": "Any Switch (rgthree)",
+    "_meta": {
+      "title": "Any Switch (rgthree)"
+    }
+  },
+  "11": {
+    "inputs": {
+      "pixels": ["17", 0],
+      "vae": ["24", 0]
+    },
+    "class_type": "VAEEncode",
+    "_meta": {
+      "title": "VAE Encode"
+    }
+  },
+  "12": {
+    "inputs": {
+      "image": "%INPUT_IMAGE_PATH%"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "Load Image"
+    }
+  },
+  "15": {
+    "inputs": {
+      "any_01": ["18", 0]
+    },
+    "class_type": "Any Switch (rgthree)",
+    "_meta": {
+      "title": "Any Switch (rgthree)"
+    }
+  },
+  "17": {
+    "inputs": {
+      "interpolation_mode": "bicubic",
+      "image": ["12", 0]
+    },
+    "class_type": "JWImageResizeToClosestSDXLResolution",
+    "_meta": {
+      "title": "Image Resize to Closest SDXL Resolution"
+    }
+  },
+  "18": {
+    "inputs": {
+      "value": 0.5
+    },
+    "class_type": "PrimitiveFloat",
+    "_meta": {
+      "title": "Denoise"
+    }
+  },
+  "20": {
+    "inputs": {
+      "unet_name": "z_image_turbo_bf16.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Load Diffusion Model"
+    }
+  },
+  "24": {
+    "inputs": {
+      "vae_name": "ae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load VAE"
+    }
+  },
+  "33": {
+    "inputs": {
+      "clip_name": "qwen_3_4b.safetensors",
+      "type": "lumina2",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "Load CLIP"
+    }
+  },
+  "34": {
+    "inputs": {
+      "text": "blurry ugly bad",
+      "clip": ["33", 0]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Negative Prompt"
+    }
+  }
+}
